@@ -1,0 +1,292 @@
+1. Написать свою реализацию функций: map, filter, find, some, every.
+
+MAP:
+
+let mas = [1,2,3,4,5,6,7,8,9]
+
+Array.prototype.altMap = function (callback, thisArg) {
+    if (this == null) {
+        throw new Error('Не могу выполнить итерацию над неопределенным значением');
+    }
+
+    let context = this;
+
+    let obj = Object(this);
+
+    if (arguments.length > 1){
+        context = thisArg;
+    }
+
+    if (typeof callback !== 'function') {
+        throw new Error('В качестве первого аргумента необходима функция.');
+    }
+    
+    let len = obj.length;
+
+    let newArray = [];
+
+    let i = 0;
+
+    while (i < len) {
+        if (i in obj) {
+            newArray[i] = callback.call(context, this[i], i, obj);
+        }
+
+        i++;
+    }
+
+    return newArray;
+}
+
+
+
+alert(mas.altMap((num) => num*num));
+
+
+
+
+
+
+
+
+
+
+
+
+
+FILTER: 
+
+let mas = [1,2,3,4,5,6,7,8,9]
+
+Array.prototype.altFilter = function (callback, thisArg) {
+    if (this == null) {
+        throw new Error('Не могу выполнить итерацию над неопределенным значением');
+    }
+
+    let context = this;
+
+    let obj = Object(this);
+
+    if (arguments.length > 1){
+        context = thisArg;
+    }
+
+    if (typeof callback !== 'function') {
+        throw new Error('В качестве первого аргумента необходима функция.');
+    }
+    
+    let len = obj.length;
+
+    let newArray = [];
+
+    let i = 0;
+
+    while (i < len) {
+        if (i in obj) {
+            if(callback.call(context, this[i], i, obj)){
+                newArray.push(this[i])
+            }
+        }
+
+        i++;
+    }
+
+    return newArray;
+}
+
+
+
+alert(mas.altFilter((num) => {
+    if(num % 2 == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+FIND:
+
+let mas = [1,3,5,7,9]
+
+Array.prototype.altFind = function (callback, thisArg) {
+    if (this == null) {
+        throw new Error('Не могу выполнить итерацию над неопределенным значением');
+    }
+
+    let context = this;
+
+    let obj = Object(this);
+
+    if (arguments.length > 1){
+        context = thisArg;
+    }
+
+    if (typeof callback !== 'function') {
+        throw new Error('В качестве первого аргумента необходима функция.');
+    }
+    
+    let len = obj.length;
+
+    let i = 0;
+
+    while (i < len) {
+        if (i in obj) {
+            let k = this[i];
+            if(callback.call(context, this[i], i, obj)){
+                return k;
+            }
+        }
+
+        i++;
+    }
+
+    return undefined;
+}
+
+
+
+alert(mas.altFind((num) => {
+    if(num % 2 == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SOME:
+
+let mas = [1,3,6,7,9]
+
+Array.prototype.altEvery = function (callback, thisArg) {
+    if (this == null) {
+        throw new Error('Не могу выполнить итерацию над неопределенным значением');
+    }
+
+    let context = this;
+
+    let obj = Object(this);
+
+    if (arguments.length > 1){
+        context = thisArg;
+    }
+
+    if (typeof callback !== 'function') {
+        throw new Error('В качестве первого аргумента необходима функция.');
+    }
+    
+    let len = obj.length;
+
+    let i = 0;
+
+    while (i < len) {
+        if (i in obj) {
+            let k = this[i];
+            if(callback.call(context, this[i], i, obj)){
+                return true;
+            }
+        }
+
+        i++;
+    }
+
+    return false;
+}
+
+
+
+alert(mas.altEvery((num) => {
+    if(num % 2 == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+
+EVERY:
+
+let mas = [1,4,6,8,10]
+
+Array.prototype.altEvery = function (callback, thisArg) {
+    if (this == null) {
+        throw new Error('Не могу выполнить итерацию над неопределенным значением');
+    }
+
+    let context = this;
+
+    let obj = Object(this);
+
+    if (arguments.length > 1){
+        context = thisArg;
+    }
+
+    if (typeof callback !== 'function') {
+        throw new Error('В качестве первого аргумента необходима функция.');
+    }
+    
+    let len = obj.length;
+
+    let i = 0;
+
+    while (i < len) {
+        if (i in obj) {
+            let k = this[i];
+            if(!callback.call(context, this[i], i, obj)){
+                return false;
+            }
+        }
+
+        i++;
+    }
+
+    return true;
+}
+
+
+
+alert(mas.altEvery((num) => {
+    if(num % 2 == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}));
