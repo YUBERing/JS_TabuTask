@@ -5,10 +5,11 @@
  * @param {*} g 
  * @returns 
  */
-const fillMas = (f, g) =>{
-    if (f.length != g){
-        f.push(f.length + 1);
-        return fillMas(f, g);
+const fillMas = (inputMas, number) => {
+    if (inputMas.length != number){
+        inputMas.push(inputMas.length + 1);
+        
+        return fillMas(inputMas, number);
     }
 
     return f;

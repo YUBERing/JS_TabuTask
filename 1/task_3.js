@@ -8,17 +8,17 @@
 const takeMasBigCh = (f) =>{
     let h = [];
 
-    for (let i = 0; i<f.length; i++){
-        let b = 0;
-
-        for (let j = 0; j < f[i].length; j++){
-            if(f[i][j] > b){
-                b = f[i][j];
+    f.forEach((item) => {
+        let b = item.reduce((value, current) => {
+            if(current > value) {
+                return current;
             }
-        }
+
+            return value;
+        });
 
         h.push(b);
-    }
+    })
 
     return h;
 }

@@ -6,8 +6,8 @@
  * @param {*} twel 
  * @returns 
  */
-let funcSum = (first, twel) =>{
-    if(arguments.length == 2){
+const funcSum = (first, twel) =>{
+    if (arguments.length === 2) {
         return first + twel;
     }
 

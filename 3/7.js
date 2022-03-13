@@ -5,33 +5,34 @@ undefined. Например: fearNotLetter("abce") должна вернуть "
  * @param {*} stroke 
  * @returns 
  */
-let fearNotLetter = (stroke) =>{
-    let masstr = stroke.split("");
+const fearNotLetter = (stroke) =>{
+    let masStr = stroke.split("");
 
-    let mascode = [];
+    let masCodes = masStr.reduce((value, elem) =>{
+        if (!value.includes(elem.charCodeAt(0))) {
+            value.push(elem.charCodeAt(0));
+        }
 
+        return value;
+    }, []);
+    
     let outPutMas = [];
 
-    for(const i in masstr){
-        if(mascode.find(item => item == masstr[i].charCodeAt(0)) == undefined){
-            mascode.push(masstr[i].charCodeAt(0));
-        }
-    }
+    masCodes.sort();
+    masCodes.reduce((value, elem) => {
+        if (elem - value > 1){
+            let outPutChar = value + 1;
 
-    mascode.sort();
-    for(let i = 0; i <= mascode.length-1; i++){
-        if(mascode[i + 1] - mascode[i] > 1){
-            let a = mascode[i] + 1;
-
-            while(a < mascode[i + 1]){
-                outPutMas.push(String.fromCharCode(a));
-                a++;
+            while (outPutChar < elem) {
+                outPutMas.push(String.fromCharCode(outPutChar));
+                outPutChar++;
             }
         }
-    }
 
+        return elem;
+    })
 
-    if(outPutMas.length == 0){
+    if (outPutMas.length == 0) {
         return undefined;
     }
     

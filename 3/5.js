@@ -3,9 +3,9 @@
  * @param {*} s 
  * @returns 
  */
-let rewSpinCase = (s) => {
-    let k = s.toLowerCase();
-    let p = k.replace( / /g, "-" );
+const rewSpinCase = (str) => {
+    let strInLowerCase = str.toLowerCase();
+    let strInSpinalCase = strInLowerCase.replace( / /g, "-");
 
-    return p;
+    return strInSpinalCase;
 }

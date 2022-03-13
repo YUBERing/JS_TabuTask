@@ -5,22 +5,22 @@
  * @param {*} mas2 
  * @returns 
  */
-let findEl = (mas1, mas2) => {
-    let outMas = [];
+const findEl = (mas1, mas2) => {
+    const outMas = [];
 
     //Находим элементы, которые есть в первом массиве, но нет во втором
-    mas1.forEach(function(element){
-        if(mas2.find(item => item == element) == undefined){
-            outMas.push(element);
+    mas1.filter((item) => {
+        if (!mas2.includes(item)) {
+            outMas.push(item);
         }
-    });
+    })
 
     //Находим элементы, которые есть во втором массиве, но нет в первом
-    mas2.forEach(function(element){
-        if(mas1.find(item => item == element) == undefined){
-            outMas.push(element);
+    mas2.filter((item) => {
+        if (!mas1.includes(item)) {
+            outMas.push(item);
         }
-    });
+    })
 
     return outMas;
 }

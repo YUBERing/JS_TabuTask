@@ -4,18 +4,16 @@
  * @param {*} inMas 
  * @returns 
  */
-let steamrollArray = (inMas) => {
-    let outMas = [];
-
-    for(const i in inMas){
-        if(Array.isArray(inMas[i])){
-            outMas = outMas.concat(steamrollArray(inMas[i]));
+let steamRollArray = (inMas) => {
+    let outMas = inMas.reduce((value, item) => {
+        if (Array.isArray(item)) {
+            return value.concat(steamRollArray(item));
         }
-        else{
-            outMas.push(inMas[i]);
+        else {
+            value.push(item);
+            return value;
         }
-
-    };
+    }, []);
 
     return outMas;
 }

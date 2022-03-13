@@ -5,16 +5,16 @@
  * @param  {...any} massive 
  * @returns 
  */
-let uniqChar = (...massive) => {
-    let outMas = [];
-
-    for(let i = 0; i <= massive.length - 1; i++){
-        for(const j in massive[i]){
-            if(outMas.find(item => item == massive[i][j]) == undefined){
-                outMas.push(massive[i][j]);
+const uniqChar = (...massive) => {
+    let outMas = massive.reduce((value, elem) => {
+        elem.forEach((current) => {
+            if (!value.includes(current)){
+                value.push(current);
             }
-        }
-    }
+        });
+
+        return value;
+    }, []);
 
     return outMas;
 }

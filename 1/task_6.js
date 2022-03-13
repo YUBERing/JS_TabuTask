@@ -4,51 +4,42 @@
 индекса n второго массива и вернуть полученный массив. Входные массивы не должны
 изменяться. (например: при входных данных ([1, 2, 3], [4, 5], 1) должно вернуться [4, 1, 2, 
 3, 5].
- * @param {*} f 
- * @param {*} g 
- * @param {*} h 
+ * @param {*} firstArray
+ * @param {*} secondArray
+ * @param {*} insertIndex 
  * @returns 
  */
-const putInMas = (f, g, h) =>{
-    let r = Array.from(f);
+const putInMas = (firstArray, secondArray, insertIndex) => {
 
-    let t = Array.from(g);
+    let outMas = [];
 
-    let y = Array.from(h);
+    if (insertIndex < 0) {
+        outMas = firstArray.reduce((mas, current) => {
+            mas.push(current);
 
-    if(y <= 0){
-        for(let i = 0; i < r.length; i++){
-            t.unshift(r[i]);
+            return mas;
+        }, outMas)
+    }
+
+    outMas = secondArray.reduce((mas, current, index) => {
+        if (index == insertIndex) {
+            for (let i = 0; i < firstArray.length; i++) {
+                mas.push(firstArray[i]);
+            }
         }
 
-        return t;
+        mas.push(current);
+        
+        return mas;
+    }, outMas);
+
+    if (insertIndex >= secondArray.length) {
+        outMas = firstArray.reduce((mas, current) => {
+            mas.push(current);
+
+            return mas;
+        }, outMas)
     }
 
-    if(y >= t.length){
-        for(let i = 0; i < r.length; i++){
-            t.push(r[i]);
-        }
-
-        return t;
-    }
-
-    let u = [];
-
-    for (let i = t.length; i >= y; i--){
-        let l = t.pop();
-
-        u.push(l);
-    }
-
-    for (let i = 0; i < r.length; i++){
-        t.push(r[i]);
-    }
-
-    for (let i = u.length-1; i >= 0; i--){
-        let l = u.pop();
-
-        t.push(l);
-    }
-
-    return t;
+    return outMas;
 }

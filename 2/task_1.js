@@ -7,15 +7,15 @@
  * @returns 
  */
 Array.prototype.altMap = function (callback, thisArg) {
-    if (this == null) {
+    if (this === null) {
         throw new Error('Не могу выполнить итерацию над неопределенным значением');
     }
 
     let context = this;
 
-    let obj = Object(this);
+    const obj = Object(this);
 
-    if (arguments.length > 1){
+    if (arguments.length > 1) {
         context = thisArg;
     }
 
@@ -23,9 +23,9 @@ Array.prototype.altMap = function (callback, thisArg) {
         throw new Error('В качестве первого аргумента необходима функция.');
     }
     
-    let len = obj.length;
+    const len = obj.length;
 
-    let newArray = [];
+    const newArray = [];
 
     let i = 0;
 
@@ -48,15 +48,15 @@ Array.prototype.altMap = function (callback, thisArg) {
  * @returns 
  */
 Array.prototype.altFilter = function (callback, thisArg) {
-    if (this == null) {
+    if (this === null) {
         throw new Error('Не могу выполнить итерацию над неопределенным значением');
     }
 
     let context = this;
 
-    let obj = Object(this);
+    const obj = Object(this);
 
-    if (arguments.length > 1){
+    if (arguments.length > 1) {
         context = thisArg;
     }
 
@@ -64,15 +64,15 @@ Array.prototype.altFilter = function (callback, thisArg) {
         throw new Error('В качестве первого аргумента необходима функция.');
     }
     
-    let len = obj.length;
+    const len = obj.length;
 
-    let newArray = [];
+    const newArray = [];
 
     let i = 0;
 
     while (i < len) {
         if (i in obj) {
-            if(callback.call(context, this[i], i, obj)){
+            if (callback.call(context, this[i], i, obj)) {
                 newArray.push(this[i])
             }
         }
@@ -91,15 +91,15 @@ Array.prototype.altFilter = function (callback, thisArg) {
  * @returns 
  */
 Array.prototype.altFind = function (callback, thisArg) {
-    if (this == null) {
+    if (this === null) {
         throw new Error('Не могу выполнить итерацию над неопределенным значением');
     }
 
     let context = this;
 
-    let obj = Object(this);
+    const obj = Object(this);
 
-    if (arguments.length > 1){
+    if (arguments.length > 1) {
         context = thisArg;
     }
 
@@ -107,14 +107,15 @@ Array.prototype.altFind = function (callback, thisArg) {
         throw new Error('В качестве первого аргумента необходима функция.');
     }
     
-    let len = obj.length;
+    const len = obj.length;
 
     let i = 0;
 
     while (i < len) {
         if (i in obj) {
             let k = this[i];
-            if(callback.call(context, this[i], i, obj)){
+
+            if (callback.call(context, this[i], i, obj)) {
                 return k;
             }
         }
@@ -133,15 +134,15 @@ Array.prototype.altFind = function (callback, thisArg) {
  * @returns 
  */
 Array.prototype.altEvery = function (callback, thisArg) {
-    if (this == null) {
+    if (this === null) {
         throw new Error('Не могу выполнить итерацию над неопределенным значением');
     }
 
     let context = this;
 
-    let obj = Object(this);
+    const obj = Object(this);
 
-    if (arguments.length > 1){
+    if (arguments.length > 1) {
         context = thisArg;
     }
 
@@ -149,15 +150,13 @@ Array.prototype.altEvery = function (callback, thisArg) {
         throw new Error('В качестве первого аргумента необходима функция.');
     }
     
-    let len = obj.length;
+    const len = obj.length;
 
     let i = 0;
 
     while (i < len) {
         if (i in obj) {
-            let k = this[i];
-
-            if(callback.call(context, this[i], i, obj)){
+            if (callback.call(context, this[i], i, obj)) {
                 return true;
             }
         }
@@ -176,15 +175,15 @@ Array.prototype.altEvery = function (callback, thisArg) {
  * @returns 
  */
 Array.prototype.altEvery = function (callback, thisArg) {
-    if (this == null) {
+    if (this === null) {
         throw new Error('Не могу выполнить итерацию над неопределенным значением');
     }
 
     let context = this;
 
-    let obj = Object(this);
+    const obj = Object(this);
 
-    if (arguments.length > 1){
+    if (arguments.length > 1) {
         context = thisArg;
     }
 
@@ -192,15 +191,13 @@ Array.prototype.altEvery = function (callback, thisArg) {
         throw new Error('В качестве первого аргумента необходима функция.');
     }
     
-    let len = obj.length;
+    const len = obj.length;
 
     let i = 0;
 
     while (i < len) {
         if (i in obj) {
-            let k = this[i];
-
-            if(!callback.call(context, this[i], i, obj)){
+            if (!callback.call(context, this[i], i, obj)) {
                 return false;
             }
         }

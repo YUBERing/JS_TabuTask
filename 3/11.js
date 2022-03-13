@@ -10,9 +10,11 @@
 let dropElements = (massive, func) => {
     let i = 0;
 
-    while(func(massive[i]) == false || massive.length == 0){
-        massive.shift();
-    }
+    massive = massive.map((item) => {
+        if (func(item) == true) {
+            return item;
+        }
+    })
 
-    return massive;
+    return massive.filter(Boolean);
 }

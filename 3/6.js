@@ -9,24 +9,20 @@
  * @param {*} substWrd 
  * @returns 
  */
-let replaceWord = (stroke, rplablWrd, substWrd) => {
-    let masstr = stroke.split(' ');
+let replaceWord = (stroke, findWrd, substrWrd) => {
+    const masStr = stroke.split(' ');
 
-    let mascopy = [];
+    let masCopy = masStr.map(item => item.toLowerCase());
 
-    for(const i in masstr){
-        mascopy.push(masstr[i].toLowerCase());
-    }
-
-    for(const i in mascopy){
-        if(mascopy[i] == rplablWrd){
-            mascopy[i] = substWrd;
+    for (const i in masCopy) {
+        if (masCopy[i] === findWrd) {
+            masCopy[i] = substrWrd;
         }
 
-        if(masstr[i][0].toUpperCase() == masstr[i][0]){
-            mascopy[i] = mascopy[i][0].toUpperCase()+mascopy[i].slice(1);
+        if (masStr[i][0].toUpperCase() === masStr[i][0]) {
+            masCopy[i] = masCopy[i][0].toUpperCase() + masCopy[i].slice(1);
         }
     }
 
-    return mascopy.join(' ');
+    return masCopy.join(' ');
 }

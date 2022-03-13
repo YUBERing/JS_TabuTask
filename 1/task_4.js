@@ -8,9 +8,9 @@
  */
 const sliceWord = (d, f) =>{
     
-    if(d.length > f){
+    if (d.length > f) {
         d = d.substring(0,f);
     }
 
-    return d + '...';
+    return `${d}...`;
 }

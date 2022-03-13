@@ -11,22 +11,20 @@
  * @returns 
  */
 let findSameObj = (mas, check) => {
+    let outMas = mas.filter((elem) => {
+        let counter = 0;
 
-    let outMas = [];
-
-    for(const p in mas){
-        let s = 0;
-
-        for(const k in check){
-            if(k in mas[p] && mas[p][k] == check[k]){
-                s++;
+        for (const k in check) {
+            if (k in elem && elem[k] === check[k]) {
+                counter++;
             }
         }
 
-        if(s == Object.keys(check).length){
-            outMas.push(mas[p]);
-        }
-    }
+        return counter === Object.keys(check).length;
+    });
 
     return outMas;
 }
+
+console.log(findSameObj([{ "apple": 1, "bat": 2 }, { "apple": 1 }, 
+{ "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }))

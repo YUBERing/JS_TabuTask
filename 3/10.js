@@ -3,22 +3,18 @@
  * @param {*} number 
  * @returns 
  */
-let sumPrimeNumbers = (number) => {
-    let sum = 0;
+const sumPrimeNumbers = (number) => {
+    const primeNumbers = [];
 
-    let primeNumbers = [];
-
-    for(i=2; i <= number; i++){
-        if(primeNumbers.find(item => i % item == 0) == undefined){
+    for (i=2; i <= number; i++) {
+        if (primeNumbers.find(item => i % item == 0) == undefined) {
             primeNumbers.push(i);
         }
     }
 
-    console.log(primeNumbers)
-
-    for(const i in primeNumbers){
-        sum = sum + primeNumbers[i];
-    }
+    let sum = primeNumbers.reduce((value, elem) => {
+        return value + elem;
+    }, 0);
 
     return sum;
 }

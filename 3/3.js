@@ -6,10 +6,7 @@
   * @param  {...any} numbers 
   * @returns 
   */
-let delItem = (massive, ...numbers) => {
-    for (let i = 0; i <= numbers.length - 1; i++) {
-        massive = massive.filter((elem) => {return elem != numbers[i]});
-    }
-    
+const delItem = (massive, ...numbers) => {
+    massive = massive.filter((elem) => {return !numbers.includes(elem)});
     return massive;
 }

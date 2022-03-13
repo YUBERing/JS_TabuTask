@@ -2,26 +2,24 @@
  * Написать функцию, которая принимает на вход массив из двух чисел и возвращает
 сумму этих двух чисел плюс сумму всех чисел между ними. Наименьшее число не
 всегда будет на первом месте. (Например sumAll([4, 1]) должен возвращать 10)
- * @param {*} mas 
+ * @param {*} param0 
  * @returns 
  */
-let sumAll = (mas) => {
+let sumAll = ([firstNumber, secondNumber]) => {
     let sum = 0;
 
-    let b = mas.slice();
-
-    if (b[0] > b[1]){
-        while(b[1] <= b[0]){
-            sum+=b[1];
-            b[1]++;
+    if (firstNumber > secondNumber) {
+        while (secondNumber <= firstNumber) {
+            sum+=secondNumber;
+            secondNumber++;
         }
 
         return sum;
     }
 
-    while(b[1] >= b[0]){
-        sum += b[0];
-        b[0]++;
+    while(secondNumber >= firstNumber){
+        sum += firstNumber;
+        firstNumber++;
     }
 
     return sum;

@@ -5,18 +5,17 @@
  * @returns 
  */
 const makeUpChar = (f) =>{
-    let h = f.split(' ');
+    const h = f.split(' ');
 
-    f = '';
-
-    for (let i = 0; i < h.length; i++){
-        if (h[i] != ''){
-            h[i] = h[i][0].toUpperCase() + h[i].slice(1);
-            f = f + ' ' + h[i];
+    let mas = h.map((item) => {
+        if (item != '') {
+            return item[0].toUpperCase() + item.slice(1);
         }
-    }
 
-    f = f.slice(1);
+        return item;
+    })
+
+    f = mas.join(' ');
 
     return f;
 }
