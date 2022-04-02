@@ -1,19 +1,21 @@
 /**
  *  Написать функцию, которая принимает массив различной вложенности и возвращает
 одномерный массив. Например: steamrollArray([1, [2], [3, [[4]]]]) должна вернуть [1, 2, 3, 4].
- * @param {*} inMas 
+ * @param {*} multidimensionalArr 
  * @returns 
  */
-let steamRollArray = (inMas) => {
-    let outMas = inMas.reduce((value, item) => {
+const makeMultidimenOnedimenArray = (multidimensionalArr) => {
+    const outArr = multidimensionalArr.reduce((value, item) => {
         if (Array.isArray(item)) {
-            return value.concat(steamRollArray(item));
+            return value.concat(makeMultidimenOnedimenArray(item));
         }
-        else {
-            value.push(item);
-            return value;
-        }
+        
+        value.push(item);
+
+        return value;
     }, []);
 
-    return outMas;
+    return outArr;
 }
+
+module.exports = makeMultidimenOnedimenArray;

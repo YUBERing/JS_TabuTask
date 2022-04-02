@@ -6,7 +6,8 @@
  * @param {*} twel 
  * @returns 
  */
-const funcSum = (first, twel) =>{
+function sumTwoNumbers (first, twel){
+
     if (arguments.length === 2) {
         return first + twel;
     }
@@ -15,3 +16,5 @@ const funcSum = (first, twel) =>{
         return first + twel;
     }
 }
+
+module.exports = sumTwoNumbers;

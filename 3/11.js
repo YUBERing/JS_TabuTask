@@ -7,9 +7,7 @@
  * @param {*} func 
  * @returns 
  */
-let dropElements = (massive, func) => {
-    let i = 0;
-
+const deleteItemsConditionIsMet = (massive, func) => {
     massive = massive.map((item) => {
         if (func(item) == true) {
             return item;
@@ -18,3 +16,5 @@ let dropElements = (massive, func) => {
 
     return massive.filter(Boolean);
 }
+
+module.exports = deleteItemsConditionIsMet;

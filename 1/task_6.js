@@ -9,37 +9,13 @@
  * @param {*} insertIndex 
  * @returns 
  */
-const putInMas = (firstArray, secondArray, insertIndex) => {
+const insertArrayIntoArray = (firstArray, secondArray, insertIndex) => {
 
-    let outMas = [];
+    let outArr = [...secondArray];
 
-    if (insertIndex < 0) {
-        outMas = firstArray.reduce((mas, current) => {
-            mas.push(current);
+    outArr.splice(insertIndex, 0, ...firstArray);
 
-            return mas;
-        }, outMas)
-    }
-
-    outMas = secondArray.reduce((mas, current, index) => {
-        if (index == insertIndex) {
-            for (let i = 0; i < firstArray.length; i++) {
-                mas.push(firstArray[i]);
-            }
-        }
-
-        mas.push(current);
-        
-        return mas;
-    }, outMas);
-
-    if (insertIndex >= secondArray.length) {
-        outMas = firstArray.reduce((mas, current) => {
-            mas.push(current);
-
-            return mas;
-        }, outMas)
-    }
-
-    return outMas;
+    return outArr;
 }
+
+module.exports = insertArrayIntoArray;

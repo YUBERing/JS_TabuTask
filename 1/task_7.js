@@ -1,10 +1,12 @@
 /**
  * Написать функцию, которая на вход принимает массив и удаляет в нем все "ложные
 значения".
- * @param {*} a 
+ * @param {*} arr 
  * @returns 
  */
-const filterLose = (a) => {
-    return  a.filter(Boolean);
+const removeFalseValue = (arr) => {
+    return  arr.filter(Boolean);
 }
+
+module.exports = removeFalseValue;
 

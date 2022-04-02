@@ -1,19 +1,21 @@
 /**
  * Написать функцию, которая на вход принимает целое число и возвращает факториал
  этого числа.
- * @param {*} num 
+ * @param {*} number 
  * @returns 
  */
-const getFact = (num) => {
-    let i = 1;
+const getFact = (number) => {
+    let factorial = 1;
 
-    if (num < 0) {
+    if (number < 0) {
         return 'The entered number is negative. It is impossible to calculate the factorial.';
     }
     
-    for (let b = 1; b <= num; b++) {
-        i = i * b;
+    for (let intermediateNumber = 1; intermediateNumber <= number; intermediateNumber++) {
+        factorial = factorial * intermediateNumber;
     }
 
-    return i;
+    return factorial;
 }
+
+module.exports = getFact;

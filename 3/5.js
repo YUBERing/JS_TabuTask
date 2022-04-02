@@ -3,9 +3,11 @@
  * @param {*} s 
  * @returns 
  */
-const rewSpinCase = (str) => {
-    let strInLowerCase = str.toLowerCase();
-    let strInSpinalCase = strInLowerCase.replace( / /g, "-");
+const convertStrToSpinalCaseRegister = (str) => {
+    const strInLowerCase = str.toLowerCase();
+    const strInSpinalCase = strInLowerCase.replace( / /g, "-");
 
     return strInSpinalCase;
 }
+
+module.exports = convertStrToSpinalCaseRegister;

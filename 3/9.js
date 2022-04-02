@@ -1,29 +1,32 @@
-let str = 'hello "my friend" &pop <asdsfg> `asasd`';
+/**
+ * 
+ * @param {*} str 
+ * @returns 
+ */
+const insertSpecialCharCode = (str) =>{
+    let arr = str.split('');
 
-const reWord = (stroke) =>{
-    let mas = stroke.split('');
-
-    for(const i in mas){
-        switch (mas[i]) {
+    for(const i in arr){
+        switch (arr[i]) {
             case '&':
-                mas[i] = '&#38;';
+                arr[i] = '&#38;';
                 break;
             case '<':
-                mas[i] = '&#8249;';
+                arr[i] = '&#8249;';
                 break;
             case '>':
-                mas[i] = '&#8250;';
+                arr[i] = '&#8250;';
                 break;
             case '"':
-                mas[i] = '&#34;';
+                arr[i] = '&#34;';
                 break;
             case '`':
-                mas[i] = '&#8242;';
+                arr[i] = '&#8242;';
                 break;
         }
     }
 
-    return mas.join('');
+    return arr.join('');
 }
 
-console.log(reWord(str));
+module.exports = insertSpecialCharCode;

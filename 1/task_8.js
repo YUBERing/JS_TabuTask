@@ -5,17 +5,19 @@
  * @param {*} param0 
  * @returns 
  */
-const findSomeCh = ([str1, str2]) => {
-    let h = str1.toLowerCase().split('');
+const compareStringsForEquivalence = ([str1, str2]) => {
+    let firstArrWordsInLowwerCase = str1.toLowerCase().split('');
 
-    h = [...new Set(h)];
+    firstArrWordsInLowwerCase = [...new Set(firstArrWordsInLowwerCase)];
 
-    let j = str2.toLowerCase().split('');
+    let secondArrWordsInLowwerCase = str2.toLowerCase().split('');
 
-    j = [...new Set(j)];
+    secondArrWordsInLowwerCase = [...new Set(secondArrWordsInLowwerCase)];
 
-    return j.every((item) => {
-        return h.includes(item);
+    return secondArrWordsInLowwerCase.every((item) => {
+        return firstArrWordsInLowwerCase.includes(item);
     })
 }
+
+module.exports = compareStringsForEquivalence;
 

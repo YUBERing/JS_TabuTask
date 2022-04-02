@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "test": "mocha */*.js"
+  },
+  "dependencies": {
+    "mocha": "^9.2.2"
+  },
+  "name": "js_task",
+  "version": "1.0.0",
+  "description": "Задачи по JS",
+  "main": "task_1.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YUBERing/JS_TabuTask.git"
+  },
+  "author": "Solopov Stanislav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YUBERing/JS_TabuTask/issues"
+  },
+  "homepage": "https://github.com/YUBERing/JS_TabuTask#readme"
+}

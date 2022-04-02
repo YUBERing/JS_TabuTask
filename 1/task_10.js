@@ -5,12 +5,14 @@
  * @param {*} g 
  * @returns 
  */
-const fillMas = (inputMas, number) => {
+const fillArr = (inputMas, number) => {
     if (inputMas.length != number){
         inputMas.push(inputMas.length + 1);
         
-        return fillMas(inputMas, number);
+        return fillArr(inputMas, number);
     }
 
-    return f;
+    return inputMas;
 }
+
+module.exports = fillArr;

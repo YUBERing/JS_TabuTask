@@ -6,7 +6,9 @@
   * @param  {...any} numbers 
   * @returns 
   */
-const delItem = (massive, ...numbers) => {
+const removeEqualElemFromArr = (massive, ...numbers) => {
     massive = massive.filter((elem) => {return !numbers.includes(elem)});
     return massive;
 }
+
+module.exports = removeEqualElemFromArr;

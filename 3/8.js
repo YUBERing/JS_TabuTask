@@ -2,11 +2,11 @@
  * Написать функцию, которая принимает два или более массивов и возвращает новый
 массив уникальных значений. Значения должны быть отсортированы по их
 первоначальному порядку.
- * @param  {...any} massive 
+ * @param  {...any} arr 
  * @returns 
  */
-const uniqChar = (...massive) => {
-    let outMas = massive.reduce((value, elem) => {
+const makeArrayOfUniqueValue = (...arr) => {
+    let outArr = arr.reduce((value, elem) => {
         elem.forEach((current) => {
             if (!value.includes(current)){
                 value.push(current);
@@ -16,5 +16,7 @@ const uniqChar = (...massive) => {
         return value;
     }, []);
 
-    return outMas;
+    return outArr;
 }
+
+module.exports = makeArrayOfUniqueValue;

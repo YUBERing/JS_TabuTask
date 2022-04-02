@@ -6,15 +6,17 @@
 const sumPrimeNumbers = (number) => {
     const primeNumbers = [];
 
-    for (i=2; i <= number; i++) {
-        if (primeNumbers.find(item => i % item == 0) == undefined) {
+    for (i = 2; i <= number; i++) {
+        if (!primeNumbers.find(item => i % item == 0)) {
             primeNumbers.push(i);
         }
     }
 
-    let sum = primeNumbers.reduce((value, elem) => {
+    const sum = primeNumbers.reduce((value, elem) => {
         return value + elem;
     }, 0);
 
     return sum;
 }
+
+module.exports = sumPrimeNumbers;

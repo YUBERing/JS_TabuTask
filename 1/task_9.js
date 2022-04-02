@@ -6,24 +6,24 @@
  * @param {*} number 
  * @returns 
  */
-const makeDoubleMas = (massive, number) => {
-    return massive.reduce((mas, current) => {
-        if (!mas[0]) {
-            mas[0] = [current];
+const makeDoubleArrayFromArray = (massive, number) => {
+    return massive.reduce((arr, current) => {
+        if (!arr[0]) {
+            arr[0] = [current];
 
-            return mas;
+            return arr;
         }
 
-        if (mas[mas.length - 1].length !== number) {
-            mas[mas.length - 1].push(current);
+        if (arr[arr.length - 1].length !== number) {
+            arr[arr.length - 1].push(current);
 
-            return mas;
+            return arr;
         }
 
-        mas.push([current]);
+        arr.push([current]);
 
-        return mas;
+        return arr;
     }, []);
 }
 
-console.log(makeDoubleMas([1,2,3,4,5,6,7,8,9,0], 3))
+module.exports = makeDoubleArrayFromArray;

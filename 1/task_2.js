@@ -1,13 +1,13 @@
 /**
  * Написать функцию, которая на вход принимает строку и возвращает длину самого
 длинного слова в этой строке
- * @param {*} wr 
+ * @param {*} str 
  * @returns 
  */
-const findLongWord = (wr) => {
-    const f = wr.split(' ');
+const findLengthLongestWord = (str) => {
+    const arrayWords = str.split(' ');
 
-    let bigLen = f.reduce((value, current) => {
+    let bigLength = arrayWords.reduce((value, current) => {
         if (current.length > value.length) {
             return current;
         }
@@ -15,5 +15,7 @@ const findLongWord = (wr) => {
         return value;
     }).length;
 
-    return bigLen;
+    return bigLength;
 }
+
+module.exports = findLengthLongestWord;

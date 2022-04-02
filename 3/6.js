@@ -4,25 +4,29 @@
 аргумент - это строка, в которой осуществляется поиск и замена. Второй аргумент - это
 слово, которое нужно заменить, третий аргумент - слово, на которое нужно заменить. 
 При замене сохраняйте регистр первого символа в исходном слове.
- * @param {*} stroke 
+ * @param {*} str 
  * @param {*} rplablWrd 
  * @param {*} substWrd 
  * @returns 
  */
-let replaceWord = (stroke, findWrd, substrWrd) => {
-    const masStr = stroke.split(' ');
+let replaceWordInStr = (str, replacedWord, replacementWord) => {
+    const arrStr = str.split(' ');
 
-    let masCopy = masStr.map(item => item.toLowerCase());
+    let arrCopy = arrStr.map((item, i) => {
+        let copyItem = item.toLowerCase();
 
-    for (const i in masCopy) {
-        if (masCopy[i] === findWrd) {
-            masCopy[i] = substrWrd;
+        if (copyItem == replacedWord) {
+            copyItem = replacementWord;
         }
 
-        if (masStr[i][0].toUpperCase() === masStr[i][0]) {
-            masCopy[i] = masCopy[i][0].toUpperCase() + masCopy[i].slice(1);
+        if (arrStr[i][0].toUpperCase() === arrStr[i][0]){
+            copyItem = copyItem[0].toUpperCase() + copyItem.slice(1);
         }
-    }
 
-    return masCopy.join(' ');
+        return copyItem;
+    });
+
+    return arrCopy.join(' ');
 }
+
+module.exports = replaceWordInStr;

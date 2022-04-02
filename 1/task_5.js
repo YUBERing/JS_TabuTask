@@ -1,13 +1,13 @@
 /**
  * Написать функцию, которая на вход принимает строку и возвращает эту строку в
 формате: каждое слово начинается с заглавной буквы, остальные в нижнем регистре.
- * @param {*} f 
+ * @param {*} str 
  * @returns 
  */
-const makeUpChar = (f) =>{
-    const h = f.split(' ');
+const makeFirstLetterInUpperCase = (str) =>{
+    const arrayWords = str.split(' ');
 
-    let mas = h.map((item) => {
+    let outArrayWords = arrayWords.map((item) => {
         if (item != '') {
             return item[0].toUpperCase() + item.slice(1);
         }
@@ -15,7 +15,9 @@ const makeUpChar = (f) =>{
         return item;
     })
 
-    f = mas.join(' ');
+    str = outArrayWords.join(' ');
 
-    return f;
+    return str;
 }
+
+module.exports = makeFirstLetterInUpperCase;

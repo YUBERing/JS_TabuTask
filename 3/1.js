@@ -5,7 +5,7 @@
  * @param {*} param0 
  * @returns 
  */
-let sumAll = ([firstNumber, secondNumber]) => {
+let sumAllNumbersInRange = ([firstNumber, secondNumber]) => {
     let sum = 0;
 
     if (firstNumber > secondNumber) {
@@ -24,3 +24,5 @@ let sumAll = ([firstNumber, secondNumber]) => {
 
     return sum;
 };
+
+module.exports = sumAllNumbersInRange;
