@@ -12,10 +12,10 @@
 let replaceWordInStr = (str, replacedWord, replacementWord) => {
     const arrStr = str.split(' ');
 
-    let arrCopy = arrStr.map((item, i) => {
+    const arrCopy = arrStr.map((item, i) => {
         let copyItem = item.toLowerCase();
 
-        if (copyItem == replacedWord) {
+        if (copyItem === replacedWord) {
             copyItem = replacementWord;
         }
 
